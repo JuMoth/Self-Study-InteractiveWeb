@@ -5,8 +5,12 @@ function sample() {
     console.log('sample!');
 }
 
-timeId = setTimeout(sample, 3000);
+// timeId = setTimeout(sample, 3000);
+timeId = setInterval(sample, 1000/60);
 
+// btn.addEventListener('click', () => {
+//     clearTimeout(timeId);
+// });
 btn.addEventListener('click', () => {
-    clearTimeout(timeId);
-})
+    clearInterval(timeId);
+});
