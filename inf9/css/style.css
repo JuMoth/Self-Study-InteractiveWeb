@@ -26,6 +26,7 @@ body {
 .house {
     width: 100vw;
     height: 100vh;
+    transform: translateZ(-490vw);
     transform-style: preserve-3d;
 }
 
@@ -36,6 +37,18 @@ body {
     width: 100vw;
     height: 100vh;
     background: rgba(255, 255, 255, 0.8);
+}
+
+.wall-left {
+    /* left: -500vw; */
+    width: 1000vw;
+    transform: rotateY(90deg) translateZ(-500vw);
+}
+
+.wall-right {
+    /* left: -500vw; */
+    width: 1000vw;
+    transform: rotateY(90deg) translateZ(-400vw);
 }
 
 .wall-content {
