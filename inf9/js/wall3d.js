@@ -1,7 +1,9 @@
 (function() {
-    const house = document.querySelector('.house');
+    const houseElem = document.querySelector('.house');
+    let maxScrollValue = document.body.offsetHeight-window.innerHeight;
 
     window.addEventListener('scroll', () => {
-        console.log(scrollY);
+        const zMove = scrollY / maxScrollValue * 980 - 490;
+        houseElem.style.transform = 'translateZ(' + zMove + 'vw)';
     })
 })();
