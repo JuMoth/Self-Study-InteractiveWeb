@@ -58,8 +58,8 @@ function Character(info) {
     this.mainElem.style.left = info.xPos + '%';
     // 스크롤 중인지 아닌지
     this.scrollState = false;
-    // // 바로 이전 스크롤 위치
-    // this.lastScrollTop = 0;
+    // 바로 이전 스크롤 위치
+    this.lastScrollTop = 0;
     // this.xPos = info.xPos;
     // this.speed = info.speed;
     // this.direction;
@@ -85,30 +85,17 @@ Character.prototype = {
                 self.scrollState = false;
                 self.mainElem.classList.remove('running');
             }, 500);
+
+            // 이전 스크롤 위치와 현재 스크롤 위치를 비교
+            if(self.lastScrollTop > scrollY) {
+                // 이전 스크롤 위치가 크다면: 스크롤 올림
+                self.mainElem.setAttribute('data-direction', 'backward')
+            } else {
+                // 현재 스크롤 위치가 크다면: 스크롤 내림
+                self.mainElem.setAttribute('data-direction', 'forward')
+            }
+            self.lastScrollTop = scrollY;
         });
-        // window.addEventListener('scroll', function () {
-        //     clearTimeout(self.scrollState);
-
-        //     if (!self.scrollState) {
-        //         self.mainElem.classList.add('running');
-        //     }
-
-        //     self.scrollState = setTimeout(function () {
-        //         self.scrollState = false;
-        //         self.mainElem.classList.remove('running');
-        //     }, 500);
-
-        //     // 이전 스크롤 위치와 현재 스크롤 위치를 비교
-        //     if (self.lastScrollTop > scrollY) {
-        //         // 이전 스크롤 위치가 크다면: 스크롤 올림
-        //         self.mainElem.setAttribute('data-direction', 'backward');
-        //     } else {
-        //         // 현재 스크롤 위치가 크다면: 스크롤 내림
-        //         self.mainElem.setAttribute('data-direction', 'forward');
-        //     }
-
-        //     self.lastScrollTop = scrollY;
-        // });
 
         // window.addEventListener('keydown', function (e) {
         //     if (self.runningState) return;
