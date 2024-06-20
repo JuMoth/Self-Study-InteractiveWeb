@@ -55,7 +55,7 @@ function Character(info) {
 
     document.querySelector('.stage').appendChild(this.mainElem);
 
-    // this.mainElem.style.left = info.xPos + '%';
+    this.mainElem.style.left = info.xPos + '%';
     // // 스크롤 중인지 아닌지
     // this.scrollState = false;
     // // 바로 이전 스크롤 위치
