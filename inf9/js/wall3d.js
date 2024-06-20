@@ -22,7 +22,7 @@
         // 외워서 사용하기
         mousePos.x = -1 + (e.clientX / window.innerWidth) * 2;
         mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
-        stageElem.style.transform = 'rotateX(' + (mousePos.y * 5) + 'deg) rotateY(' + (mousePos.x * 5) + 'deg)';
+        stageElem.style.transform = 'rotateX(' + (mousePos.y * 10) + 'deg) rotateY(' + (mousePos.x * 10) + 'deg)';
     });
 
     window.addEventListener('resize', resizeHandler);
