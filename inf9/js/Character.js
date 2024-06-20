@@ -56,8 +56,8 @@ function Character(info) {
     document.querySelector('.stage').appendChild(this.mainElem);
 
     this.mainElem.style.left = info.xPos + '%';
-    // // 스크롤 중인지 아닌지
-    // this.scrollState = false;
+    // 스크롤 중인지 아닌지
+    this.scrollState = false;
     // // 바로 이전 스크롤 위치
     // this.lastScrollTop = 0;
     // this.xPos = info.xPos;
@@ -75,7 +75,16 @@ Character.prototype = {
         const self = this;
 
         window.addEventListener('scroll', () => {
-            self.mainElem.classList.add('running');
+            clearTimeout(self.scrollState);
+
+            if (!self.scrollState) {
+                self.mainElem.classList.add('running');
+            }
+
+            self.scrollState = setTimeout(function () {
+                self.scrollState = false;
+                self.mainElem.classList.remove('running');
+            }, 500);
         });
         // window.addEventListener('scroll', function () {
         //     clearTimeout(self.scrollState);
