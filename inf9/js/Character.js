@@ -60,8 +60,8 @@ function Character(info) {
     this.scrollState = false;
     // 바로 이전 스크롤 위치
     this.lastScrollTop = 0;
-    // this.xPos = info.xPos;
-    // this.speed = info.speed;
+    this.xPos = info.xPos;
+    this.speed = 1;
     // this.direction;
     // // 좌우 이동 중인지 아닌지
     // this.runningState = false;
@@ -97,10 +97,28 @@ Character.prototype = {
             self.lastScrollTop = scrollY;
         });
 
+        window.addEventListener('keydown', (e) => {
+            if(e.code == 'ArrowLeft') {
+                // 왼쪽
+                self.mainElem.setAttribute('data-direction', 'left');
+                self.mainElem.classList.add('running');
+                self.xPos -= self.speed;
+                self.mainElem.style.left = self.xPos + '%';
+            } else if(e.code == 'ArrowRight') {
+                // 오른쪽
+                self.mainElem.setAttribute('data-direction', 'right');
+                self.mainElem.classList.add('running');
+            }
+        });
+
+        window.addEventListener('keyup', () => {
+            self.mainElem.classList.remove('running');
+        });
+
         // window.addEventListener('keydown', function (e) {
         //     if (self.runningState) return;
 
-        //     if (e.KeyboardEvent.code == 37) {
+        //     if (e.code == 'ArrowLeft) {
         //         // 왼쪽
         //         self.direction = 'left';
         //         self.mainElem.setAttribute('data-direction', 'left');
@@ -108,7 +126,7 @@ Character.prototype = {
         //         self.run(self);
         //         // self.run(); // bind를 사용한 방법
         //         self.runningState = true;
-        //     } else if (e.KeyboardEvent.code == 39) {
+        //     } else if (e.code == 'ArrowRight') {
         //         // 오른쪽
         //         self.direction = 'right';
         //         self.mainElem.setAttribute('data-direction', 'right');
