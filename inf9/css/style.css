@@ -1,3 +1,12 @@
+/* 스크롤바 안보이게 하는 코드 */
+body {
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     height: 500vw;
     font-family: 'Apple SD Gothic Neo', 'Roboto', 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;
@@ -54,10 +63,21 @@ body {
     transform: rotateY(90deg) translateZ(-400vw);
 }
 
-.wall-front-a { transform: translateZ(300vw); }
-.wall-front-b { transform: translateZ(50vw); }
-.wall-front-c { transform: translateZ(-200vw); }
-.wall-front-d { transform: translateZ(-500vw); }
+.wall-front-a {
+    transform: translateZ(300vw);
+}
+
+.wall-front-b {
+    transform: translateZ(50vw);
+}
+
+.wall-front-c {
+    transform: translateZ(-200vw);
+}
+
+.wall-front-d {
+    transform: translateZ(-500vw);
+}
 
 .wall-content {
     display: flex;
