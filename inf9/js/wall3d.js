@@ -27,4 +27,8 @@
 
     window.addEventListener('resize', resizeHandler);
     resizeHandler();
+
+    window.addEventListener('click', () => {
+        new Character();
+    });
 })();
